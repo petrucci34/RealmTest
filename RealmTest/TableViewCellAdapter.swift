@@ -14,9 +14,20 @@ struct TimelineViewCellAdapter {
             return
         }
 
-        tweetCell.user.text = tweet.screenName
-        tweetCell.date.text = TimelineResponseMapper.dateToString(tweet.createdAt)
-        tweetCell.content.text = tweet.text
-        tweetCell.favoriteCount.text = "\(tweet.favoriteCount)"
+        if let screenName = tweet["screenName"] as? String {
+            tweetCell.user.text = screenName
+        }
+
+        if let createdAt = tweet["createdAt"] as? NSDate {
+            tweetCell.date.text = TimelineResponseMapper.dateToString(createdAt)
+        }
+
+        if let text = tweet["text"] as? String {
+            tweetCell.content.text = text
+        }
+
+        if let favoriteCount = tweet["favoriteCount"] as? Int {
+            tweetCell.favoriteCount.text = "\(favoriteCount)"
+        }
     }
 }

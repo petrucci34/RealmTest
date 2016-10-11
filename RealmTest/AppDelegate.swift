@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import TwitterKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         Fabric.with([Twitter.self])
+
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        print("realm URL: \(realmURL.absoluteString)")
 
         return false
     }

@@ -51,7 +51,7 @@
                                 </constraints>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
-                                    <action selector="didTapSignOutButtonWithSender:" destination="QbH-xM-79G" eventType="touchUpInside" id="Nr8-zx-E0a"/>
+                                    <action selector="didTapSignOutButtonWithSender:" destination="QbH-xM-79G" eventType="touchUpInside" id="xrw-h5-ktO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,16 +101,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter keyword" id="NVV-p5-7kv">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="eMp-6j-efa" id="JPb-gk-9Uv"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="80" id="owp-sV-EeF" customClass="TweetCell" customModule="RealmTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owp-sV-EeF" id="OG8-Vz-Oh4">
-                                    <frame key="frameInset" width="375" height="79"/>
+                                    <frame key="frameInset" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFS-ki-FBA" userLabel="content">
@@ -190,7 +193,7 @@
         <scene sceneID="jeP-nq-JGv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D7M-yP-lTv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tweets" id="S6p-Yl-Q6U"/>
+                    <tabBarItem key="tabBarItem" title="Tweets" image="second" id="S6p-Yl-Q6U"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="mTX-h5-Ldb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hbO-xY-id6">
@@ -198,6 +201,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eMp-6j-efa" kind="relationship" relationship="rootViewController" id="omF-M8-cEb"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48F-se-dKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,5 +212,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
     </resources>
 </document>

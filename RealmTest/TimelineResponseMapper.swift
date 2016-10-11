@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 /*
  Anatomy of a tweet:
@@ -98,34 +99,42 @@ struct TimelineResponseMapper {
             return
         }
 
+        let realm = try! Realm()
+        realm.beginWrite()
+
         for jsonDictionary in jsonObject {
             guard let jsonDictionary = jsonDictionary as? NSDictionary else {
                 continue
             }
 
+            let tweet = Tweet()
 
             if let userDictionary = jsonDictionary["user"] as? NSDictionary {
                 if let screenName = userDictionary["screen_name"] as? String {
-//                    tweet.screenName = screenName
+                    tweet.screenName = screenName
                 }
             }
 
             if let favoriteCount = jsonDictionary["favorite_count"] as? NSNumber {
-//                tweet.favoriteCount = favoriteCount.int64Value
+                tweet.favoriteCount = Int(favoriteCount.intValue)
             }
 
             if let tweetId = jsonDictionary["id"] as? NSNumber {
-//                tweet.tweetId = tweetId.int64Value
+                tweet.tweetId = Int(tweetId.intValue)
             }
 
             if let text = jsonDictionary["text"] as? String {
-//                tweet.text = text
+                tweet.text = text
             }
 
             if let createdAt = jsonDictionary["created_at"] as? String {
-//                tweet.createdAt = TimelineResponseMapper.stringToDate(createdAt)
+                tweet.createdAt = TimelineResponseMapper.stringToDate(createdAt)!
             }
+
+            realm.add(tweet, update: true)
         }
+
+        try! realm.commitWrite()
     }
 }
 

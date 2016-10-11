@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Tweet {
-    var createdAt: NSDate?
-    var favoriteCount: Int64
-    var text: String?
-    var tweetId: Int64
-    var screenName: String?
+class Tweet: Object {
+    var createdAt: NSDate? = nil
+    dynamic var favoriteCount = 0
+    var text: String? = nil
+    dynamic var tweetId = -1
+    var screenName: String? = nil
+
+    override static func primaryKey() -> String? {
+        return "tweetId"
+    }
 }

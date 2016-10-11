@@ -13,6 +13,8 @@ class TimelineViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     private var clientError : NSError?
     private var isLoadingTimeline = false
+    private var dataSource = TimelineDataSource()
+    private var ascending = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,42 @@ class TimelineViewController: UITableViewController {
             tableView.contentOffset = CGPoint(x: 0, y: searchBarHeight)
         }
 
+        dataSource.reload(ascending)
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension TimelineViewController {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return dataSource.numberOfSections()
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.numberOfRows(section)
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(TweetCell.identifier) else {
+            return UITableViewCell()
+        }
+
+        if let tweet = dataSource.tweetAtIndexPath(indexPath) {
+            TimelineViewCellAdapter.configure(cell as? TweetCell, tweet: tweet)
+        }
+
+        return cell
+    }
+}
+
+// MARK: - UISearchbarDelegate
+extension TimelineViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            dataSource.reload(ascending)
+        } else {
+            dataSource.filter(searchText)
+        }
         tableView.reloadData()
     }
 }
@@ -50,6 +88,9 @@ private extension TimelineViewController {
     }
 
     @objc func sortByDate() {
+        ascending = !ascending
+        dataSource.reload(ascending)
+        tableView.reloadData()
     }
 
     @objc func loadTimeline() {

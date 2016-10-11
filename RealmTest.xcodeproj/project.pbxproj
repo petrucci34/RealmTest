@@ -12,6 +12,7 @@
 		1621A1171DAC639D009CC3AC /* TableViewCellAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621A1161DAC639D009CC3AC /* TableViewCellAdapter.swift */; };
 		1621A1191DAC6562009CC3AC /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621A1181DAC6562009CC3AC /* Tweet.swift */; };
 		1621A11B1DAC663C009CC3AC /* TimelineResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621A11A1DAC663C009CC3AC /* TimelineResponseMapper.swift */; };
+		16AB60D31DAC867400265B50 /* TimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB60D21DAC867400265B50 /* TimelineDataSource.swift */; };
 		16D3D3781DAC290D00CE1D8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D3771DAC290D00CE1D8C /* AppDelegate.swift */; };
 		16D3D37C1DAC290D00CE1D8C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D37B1DAC290D00CE1D8C /* SecondViewController.swift */; };
 		16D3D37F1DAC290D00CE1D8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16D3D37D1DAC290D00CE1D8C /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		1621A1161DAC639D009CC3AC /* TableViewCellAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellAdapter.swift; sourceTree = "<group>"; };
 		1621A1181DAC6562009CC3AC /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		1621A11A1DAC663C009CC3AC /* TimelineResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineResponseMapper.swift; sourceTree = "<group>"; };
+		16AB60D21DAC867400265B50 /* TimelineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineDataSource.swift; sourceTree = "<group>"; };
 		16D3D3741DAC290C00CE1D8C /* RealmTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D3D3771DAC290D00CE1D8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16D3D37B1DAC290D00CE1D8C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				16D3D3AE1DAC2C7100CE1D8C /* Session.swift */,
 				1621A1181DAC6562009CC3AC /* Tweet.swift */,
+				16AB60D21DAC867400265B50 /* TimelineDataSource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16D3D3AF1DAC2C7100CE1D8C /* Session.swift in Sources */,
+				16AB60D31DAC867400265B50 /* TimelineDataSource.swift in Sources */,
 				16D3D3AA1DAC2B5F00CE1D8C /* LoginViewController.swift in Sources */,
 				16D3D37C1DAC290D00CE1D8C /* SecondViewController.swift in Sources */,
 				1621A11B1DAC663C009CC3AC /* TimelineResponseMapper.swift in Sources */,

@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         updateButtonVisibility()
     }
 
-    @IBAction func didTapSignOutButton(sender: UIButton) {
+    @IBAction func didTapSignOutButton(sender: AnyObject) {
         guard let userId = Session.sharedInstance.userId else {
             return
         }
